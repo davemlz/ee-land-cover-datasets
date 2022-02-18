@@ -25,7 +25,7 @@ for dataset in eeCatalog['links']:
                                         descriptionDict[cl['value']] = cl['description']
                                     bandsDict[name] = {'color':colorDict, 'description':descriptionDict}
                         if len(bandsDict) > 0:
-                            eeDict[dataset['id']] = bandsDict
+                            eeDict[dataset['id']] = {'type':dataset['gee:type'], 'bands':bandsDict}
 # Save the list as a json file
 with open('./list/ee-land-cover-datasets.json','w') as fp:
     json.dump(eeDict, fp, indent = 4, sort_keys = True)
